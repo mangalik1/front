@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Designed by Sis">
+  <title>Wedding Card</title>
+  <style type="text/css" media="all">
+    @import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=League+Spartan:wght@100..900&display=swap');
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, #010154, #37024c);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .birthday-card {
+      width: 350px;
+      height: 500px;
+      background: linear-gradient(45deg, #110021, #820173);
+      border-radius: 20px;
+      border-radius: 10% 99% 36% 64% / 82% 39% 31% 70%;
+      padding: 10px;
+      box-shadow: 0 10px 20px black;
+      text-align: center;
+      position: relative;
+      animation: glow 2s infinite ease-in-out;
+      z-index: 10;
+    }
+
+    @keyframes glow {
+      0%,
+      100% {
+        box-shadow: 0 0 15px black;
+      }
+
+      50% {
+        box-shadow: 0 0 25px #9c01d9;
+      }
+    }
+
+    .balloons-container {
+      position: relative;
+      height: 150px;
+      margin-top: 60px;
+      margin-bottom: 20px;
+    }
+
+    .balloon {
+      width: 80px;
+      height: 150px;
+      border: 2px solid #fc3fe6;
+      border-radius: 0% 90% 34% 66% / 53% 43% 57% 60%;
+      position: absolute;
+      box-shadow: 2px 5px 10px black;
+      bottom: 0;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .balloon1 {
+      left: 8%;
+      background-image: url("/monika.jpg");
+      background-size: contain;
+      background-size: cover;
+      animation-delay: 0s;
+  background-position: center 30%;  /* Top-bottom adjust */
+}
+
+
+
+    .balloon2 {
+      left: 38%;
+      background-image: url("/hand.jpg");
+      background-size: cover;
+      animation-delay: 1s;
+      background-position: 40% center; 
+    }
+
+    .balloon3 {
+      right: 8%;
+      background-image: url("/aman.jpg");
+      background-size: cover;
+      animation-delay: 3s;
+      background-position: center 35%;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-20px);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    .card-content h1 {
+      font-size: 25px;
+      color: #fc3fe6;
+      margin-bottom: 10px;
+      font-family: "DynaPuff", system-ui;
+      font-optical-sizing: auto;
+      font-weight: 200;
+      animation: colorChange 3s infinite alternate;
+    }
+
+    @keyframes colorChange {
+      0% { color: #fc3fe6; }
+      50% { color: #ffb8fd; }
+      100% { color: #ff3f9d; }
+    }
+
+    .card-content p {
+      font-size: 16px;
+      color: white;
+      font-family: "Arima", serif;
+      font-optical-sizing: auto;
+      text-align: justify;
+      padding: 0px 30px;
+      line-height: 1;
+      font-family: "League Spartan", sans-serif;
+      font-weight: bold;
+      padding-top: 9px;
+    }
+
+    button {
+      padding: 12px 25px;
+      background-color: #c22fb1;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background-color 0.3s;
+      border-radius: 7% 93% 25% 75% / 58% 58% 42% 42%;
+      font-family: "DynaPuff", system-ui;
+      font-weight: 100;
+      font-size: 15px;
+      box-shadow: 2px 5px 10px rgb(164, 93, 249);
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+      100% { transform: scale(1); }
+    }
+
+    button:hover {
+      background-color: #7b0284;
+    }
+
+    .hidden-surprise {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #ff7675;
+      display: none;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(-100%);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    #surprise {
+      padding: 0px 30px;
+      margin-left: 50px;
+      text-align: center;
+    } 
+    
+    .card-content h1, .card-content h2 {
+      word-spacing: 6px;
+    }
+    
+    .card-content h2 {
+      color: rgb(245, 6, 6);
+      animation: moveText 4s infinite alternate;
+    }
+    
+    @keyframes moveText {
+      0% { transform: translateX(-15px); }
+      50% { transform: translateX(15px); }
+      100% { transform: translateX(-15px); }
+    }
+
+    .card-content p span {
+      margin-right: 9px;
+      display: inline-block;
+      animation: fadeInOut 2s infinite alternate;
+    }
+    
+    @keyframes fadeInOut {
+      0% { opacity: 0.6; transform: scale(0.95); }
+      100% { opacity: 1; transform: scale(1.05); }
+    }
+    
+    .card-content p {
+      color: rgb(245, 6, 6);
+    }
+    
+    .name-text {
+      display: inline-block;
+      animation: wavyText 2s infinite;
+    }
+    
+    @keyframes wavyText {
+      0%, 100% { transform: translateY(0); }
+      25% { transform: translateY(-3px); }
+      50% { transform: translateY(0); }
+      75% { transform: translateY(3px); }
+    }
+    
+    #namesContainer {
+      display: inline-block;
+    }
+    
+    /* Sparkle effect background (replacing hearts) */
+    .sparkle {
+      position: absolute;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.6;
+      background-color: #fff;
+      border-radius: 50%;
+      animation: floatUp 15s linear infinite;
+    }
+    
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+    
+    /* Sparkle styles replacing heart styles */
+    .sparkle-pink {
+      background-color: #ff3e8a;
+    }
+    
+    .sparkle-gold {
+      background-color: #ffd700;
+    }
+    
+    .sparkle-purple {
+      background-color: #cb3eff;
+    }
+    
+    .sparkle-large {
+      width: 8px;
+      height: 8px;
+    }
+    
+    .sparkle-medium {
+      width: 5px;
+      height: 5px;
+    }
+    
+    .sparkle-small {
+      width: 3px;
+      height: 3px;
+    }
+
+    /* Music control button */
+    .music-control {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 100;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .music-control i {
+      color: white;
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="sparklesContainer" class="sparkles-container"></div>
+  
+  <div class="birthday-card">
+    <div class="balloons-container">
+      <div class="balloon balloon1"></div>
+      <div class="balloon balloon2"></div>
+      <div class="balloon balloon3"></div>
+    </div>
+    <div class="card-content">
+      <h2> || ॐ श्री गणेशाय नमः || </h2>
+      <h1 id="namesContainer">
+        <span class="name-text">M</span><span class="name-text">o</span><span class="name-text">n</span><span class="name-text">i</span><span class="name-text">k</span><span class="name-text">a</span>
+        <span class="name-text">&</span>
+        <span class="name-text">A</span><span class="name-text">m</span><span class="name-text">a</span><span class="name-text">n</span>
+      </h1>
+
+      <p><span>मंगलम् भगवान विष्णु:</span>मंगलम् गरुड़ध्वज: | 
+        <br> <br>
+        <span>मंगलम् पुण्डरीकाक्ष:</span> मंगलाय तनोऽहरि: ||
+      </p>
+      <button onclick="redirectToPage3()">Click here 👈</button>
+      <p class="hidden-surprise" id="surprise">Welcome to Our Wedding 🤗</p>
+    </div>
+  </div>
+
+  <!-- Single audio element for playing music -->
+  <audio id="backgroundMusic" loop>
+    <source src="shalma.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  
+  <!-- Music control button -->
+  <div class="music-control" onclick="toggleMusic()">
+    <i id="musicIcon">🔊</i>
+  </div>
+
+  <script>
+    // Global variable to track music state
+    let isMusicPlaying = false;
+    
+    // Auto-play audio when page loads with user interaction capture
+    window.addEventListener('DOMContentLoaded', function() {
+      // Create sparkles (replacing hearts)
+      createSparkles();
+      
+      // Stagger the name text animation
+      staggerNameAnimation();
+      
+      // Try to play music (will likely be blocked by browser)
+      tryPlayMusic();
+      
+      // Add event listeners for user interaction to start music
+      document.addEventListener('click', function() {
+        if (!isMusicPlaying) {
+          tryPlayMusic();
+        }
+      }, { once: true });
+      
+      document.addEventListener('touchstart', function() {
+        if (!isMusicPlaying) {
+          tryPlayMusic();
+        }
+      }, { once: true });
+      
+      document.addEventListener('keydown', function() {
+        if (!isMusicPlaying) {
+          tryPlayMusic();
+        }
+      }, { once: true });
+    });
+    
+    // Try to play music
+    function tryPlayMusic() {
+      const backgroundMusic = document.getElementById('backgroundMusic');
+      
+      backgroundMusic.play().then(function() {
+        isMusicPlaying = true;
+        document.getElementById('musicIcon').textContent = "🔊";
+      }).catch(function(error) {
+        console.log("Autoplay prevented: ", error);
+        // Most browsers require user interaction before playing audio
+      });
+    }
+    
+    // Toggle music on/off
+    function toggleMusic() {
+      const backgroundMusic = document.getElementById('backgroundMusic');
+      
+      if (isMusicPlaying) {
+        backgroundMusic.pause();
+        isMusicPlaying = false;
+        document.getElementById('musicIcon').textContent = "🔇";
+      } else {
+        backgroundMusic.play();
+        isMusicPlaying = true;
+        document.getElementById('musicIcon').textContent = "🔊";
+      }
+    }
+    
+    // Create sparkles (replacing heart balloons)
+    function createSparkles() {
+      const sparklesContainer = document.getElementById('sparklesContainer');
+      const sparkleCount = 35;
+      const sparkleColors = ['sparkle-pink', 'sparkle-gold', 'sparkle-purple'];
+      const sparkleSizes = ['sparkle-small', 'sparkle-medium', 'sparkle-large'];
+      
+      for (let i = 0; i < sparkleCount; i++) {
+        const sparkle = document.createElement('div');
+        sparkle.classList.add('sparkle');
+        
+        // Random properties
+        const sparkleColor = sparkleColors[Math.floor(Math.random() * sparkleColors.length)];
+        const sparkleSize = sparkleSizes[Math.floor(Math.random() * sparkleSizes.length)];
+        
+        sparkle.classList.add(sparkleColor, sparkleSize);
+        
+        // Random position and animation
+        const left = Math.random() * 100;
+        const delay = Math.random() * 30;
+        const duration = Math.random() * 10 + 15;
+        const wiggle = Math.random() * 20 - 10;
+        
+        sparkle.style.left = left + 'vw';
+        sparkle.style.animationDelay = delay + 's';
+        sparkle.style.animationDuration = duration + 's';
+        
+        // Add some horizontal movement with CSS custom properties
+        sparkle.style.setProperty('--wiggle', wiggle + 'px');
+        
+        // Add spinning effect with varying speeds
+        sparkle.style.animation = `floatUp ${duration}s linear ${delay}s infinite`;
+        
+        sparklesContainer.appendChild(sparkle);
+      }
+    }
+    
+    // Stagger the name text animation
+    function staggerNameAnimation() {
+      const letters = document.querySelectorAll('.name-text');
+      letters.forEach((letter, index) => {
+        letter.style.animationDelay = (index * 0.1) + 's';
+      });
+    }
+
+    // Function to immediately redirect to page3.html
+    function redirectToPage3() {
+      // Show the surprise message for a very brief moment (optional)
+      const surprise = document.getElementById('surprise');
+      surprise.style.display = 'block';
+      surprise.style.animation = 'slideIn 1s ease';
+      
+      // Create celebratory sparkles when button is clicked
+      createCelebratorySparkles();
+      
+      // Immediate redirect to page3.html
+      window.location.href = 'page2.html';
+    }
+    
+    // Create a burst of sparkles when the button is clicked (replacing hearts)
+    function createCelebratorySparkles() {
+      const sparklesContainer = document.getElementById('sparklesContainer');
+      const extraSparkleCount = 20;
+      const sparkleColors = ['#ff3e8a', '#ffd700', '#cb3eff', '#ffffff'];
+      
+      for (let i = 0; i < extraSparkleCount; i++) {
+        setTimeout(() => {
+          const sparkle = document.createElement('div');
+          sparkle.classList.add('sparkle');
+          
+          // Random properties
+          const color = sparkleColors[Math.floor(Math.random() * sparkleColors.length)];
+          sparkle.style.backgroundColor = color;
+          sparkle.style.width = (Math.random() * 6 + 2) + 'px';
+          sparkle.style.height = sparkle.style.width;
+          
+          // Position sparkles near the center/button
+          const cardRect = document.querySelector('.birthday-card').getBoundingClientRect();
+          const centerX = cardRect.left + cardRect.width/2;
+          const centerY = cardRect.top + cardRect.height*0.7;
+          
+          const randomAngle = Math.random() * Math.PI * 2;
+          const randomDistance = Math.random() * 100;
+          
+          const left = centerX + Math.cos(randomAngle) * randomDistance;
+          const top = centerY + Math.sin(randomAngle) * randomDistance;
+          
+          sparkle.style.left = left + 'px';
+          sparkle.style.top = top + 'px';
+          sparkle.style.position = 'fixed';
+          
+          // Animation
+          const duration = Math.random() * 2 + 3;
+          sparkle.style.animation = `floatUp ${duration}s ease-out`;
+          
+          sparklesContainer.appendChild(sparkle);
+          
+          // Remove after animation completes
+          setTimeout(() => { 
+            sparkle.remove();
+          }, duration * 1000);
+        }, i * 100);
+      }
+    }
+  </script>
+</body>
+</html>
